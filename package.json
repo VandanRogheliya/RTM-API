@@ -1,0 +1,26 @@
+{
+	"name": "rtm-api",
+	"version": "1.0.0",
+	"description": "API for Real Task Manager",
+	"main": "server.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"run": "nodemon server.js"
+	},
+	"keywords": [
+		"nodejs",
+		"express",
+		"mysql",
+		"restapi"
+	],
+	"author": "Vandan Rogheliya",
+	"license": "ISC",
+	"dependencies": {
+		"body-parser": "^1.19.0",
+		"express": "^4.17.1",
+		"mysql": "^2.18.1"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.4"
+	}
+}
