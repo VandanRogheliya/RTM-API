@@ -1,3 +1,4 @@
+// Importing sql connection object
 const sql = require('./db.js')
 
 class Goal {
@@ -113,27 +114,3 @@ Goal.removeAll = (result, table) => {
 }
 
 module.exports = Goal
-
-/*
-TESTING
-
-Goal.print = (par) => {
-  console.log(par)
-}
-
-console.log(Goal);
-const g = new Goal({topic: 'asdf'});
-console.log(g);
-
-Goal.print("1");
-
-class Goal2 extends Goal {
-  constructor(goal2) {
-    super(goal2)
-    this.d = goal2.d
-  }
-}
-
-Goal2.print("2")
-
-*/

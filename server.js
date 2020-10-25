@@ -2,6 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 var cors = require('cors')
 
+// Creating an ExpressJS app
 const app = express()
 
 // Allowing different origins to access the API
