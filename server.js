@@ -15,9 +15,17 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
 // Home route
+// Development
 app.get('/', (req, res) => {
 	res.json({ message: 'Welcome to RTM API.' })
 })
+
+// // Production [RTM ReactJS client build is to be in place]
+// const path = require('path')
+// app.use(express.static('build'))
+// app.get('/', (req, res) => {
+// 	res.sendFile(path.join(__dirname, 'build', 'index.html'))
+// })
 
 // Routes
 require('./routes/long.routes')(app)

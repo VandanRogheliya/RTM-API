@@ -2,3 +2,5 @@
 *.config.js
 node_modules
 Notes.txt
+/build
+.vscode
