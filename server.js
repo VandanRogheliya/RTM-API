@@ -2,6 +2,8 @@ const express = require('express')
 const bodyParser = require('body-parser')
 var cors = require('cors')
 
+const PORT = 5000
+
 // Creating an ExpressJS app
 const app = express()
 
@@ -17,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 // Home route
 // Development
 app.get('/', (req, res) => {
-	res.json({ message: 'Welcome to RTM API.' })
+  res.json({ message: 'Welcome to RTM API.' })
 })
 
 // // Production [RTM ReactJS client build is to be in place]
@@ -34,6 +36,6 @@ require('./routes/week.routes')(app)
 require('./routes/task.routes')(app)
 
 // set port, listen for requests
-app.listen(5000, () => {
-	console.log('Server is running on port 5000.')
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}.`)
 })
