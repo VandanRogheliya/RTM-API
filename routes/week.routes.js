@@ -1,7 +1,7 @@
 const { verifyUser } = require('../authenticate')
 
 module.exports = app => {
-	const week = require('../controllers/sweek.controller')
+	const week = require('../controllers/week.controller')
 
 	// Create a new Weekly Goal
 	app.post('/week', verifyUser, week.create)

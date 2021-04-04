@@ -9,14 +9,14 @@ class LongTerm extends Goal {
 
 LongTerm.create = (newGoal, result) => Goal.create(newGoal, result, 'long_goals')
 
-LongTerm.findById = (goalId, userid, result) => Goal.findById(goalId, userid, result, 'long_goals')
+LongTerm.findById = (goalId, userId, result) => Goal.findById(goalId, userId, result, 'long_goals')
 
-LongTerm.getAll = (userid, result) => Goal.getAll(userid, result, 'long_goals')
+LongTerm.getAll = (userId, result) => Goal.getAll(userId, result, 'long_goals')
 
-LongTerm.updateById = (goalId, userid, goal, result) => Goal.updateById(goalId, userid, goal, result, 'long_goals')
+LongTerm.updateById = (goalId, userId, goal, result) => Goal.updateById(goalId, userId, goal, result, 'long_goals')
 
-LongTerm.remove = (id, userid, result) => Goal.remove(id, userid, result, 'long_goals')
+LongTerm.remove = (id, userId, result) => Goal.remove(id, userId, result, 'long_goals')
 
-LongTerm.removeAll = (userid, result) => Goal.removeAll(userid, result, 'long_goals')
+LongTerm.removeAll = (userId, result) => Goal.removeAll(userid, result, 'long_goals')
 
 module.exports = LongTerm

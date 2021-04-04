@@ -61,8 +61,8 @@ Goal.updateById = (id, userId, goal, result, table) => {
 	// Changes [topic, description, completed, complete_date] only
 
 	sql.query(
-		`UPDATE ${table} SET topic = ?, description = ?, completed = ?, complete_date = ? WHERE id = ? AND user_id = ${userId}`,
-		[goal.topic, goal.description, goal.completed, goal.complete_date, id],
+		`UPDATE ${table} SET topic = ?, description = ?, completed = ?, complete_date = ? WHERE id = ? AND user_id = ?`,
+		[goal.topic, goal.description, goal.completed, goal.complete_date, id, userId],
 		(err, res) => {
 			if (err) {
 				console.log('error: ', err)
