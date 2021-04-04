@@ -9,14 +9,14 @@ class Week extends Goal {
 
 Week.create = (newGoal, result) => Goal.create(newGoal, result, 'week_goals')
 
-Week.findById = (goalId, result) => Goal.findById(goalId, result, 'week_goals')
+Week.findById = (goalId, userid, result) => Goal.findById(goalId, userid, result, 'week_goals')
 
-Week.getAll = result => Goal.getAll(result, 'week_goals')
+Week.getAll = (userid, result) => Goal.getAll(userid, result, 'week_goals')
 
-Week.updateById = (goalId, goal, result) => Goal.updateById(goalId, goal, result, 'week_goals')
+Week.updateById = (goalId, userid, goal, result) => Goal.updateById(goalId, userid, goal, result, 'week_goals')
 
-Week.remove = (id, result) => Goal.remove(id, result, 'week_goals')
+Week.remove = (id, userid, result) => Goal.remove(id, userid, result, 'week_goals')
 
-Week.removeAll = result => Goal.removeAll(result, 'week_goals')
+Week.removeAll = (userid, result) => Goal.removeAll(userid, result, 'week_goals')
 
 module.exports = Week
