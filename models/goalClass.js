@@ -8,6 +8,7 @@ class Goal {
 		this.create_date = goal.create_date
 		this.completed = goal.completed
 		this.complete_date = goal.complete_date
+		this.user_id = goal.user_id
 	}
 }
 
@@ -24,8 +25,8 @@ Goal.create = (newGoal, result, table) => {
 	})
 }
 
-Goal.findById = (goalId, result, table) => {
-	sql.query(`SELECT * FROM ${table} WHERE id = ${goalId}`, (err, res) => {
+Goal.findById = (goalId, userId, result, table) => {
+	sql.query(`SELECT * FROM ${table} WHERE id = ${goalId} and user_id = ${userId}`, (err, res) => {
 		if (err) {
 			console.log('error: ', err)
 			result(err, null)
@@ -43,8 +44,8 @@ Goal.findById = (goalId, result, table) => {
 	})
 }
 
-Goal.getAll = (result, table) => {
-	sql.query(`SELECT * FROM ${table}`, (err, res) => {
+Goal.getAll = (userId, result, table) => {
+	sql.query(`SELECT * FROM ${table} WHERE user_id = ${userId}`, (err, res) => {
 		if (err) {
 			console.log('error: ', err)
 			result(err, null)
@@ -56,12 +57,12 @@ Goal.getAll = (result, table) => {
 	})
 }
 
-Goal.updateById = (id, goal, result, table) => {
+Goal.updateById = (id, userId, goal, result, table) => {
 	// Changes [topic, description, completed, complete_date] only
 
 	sql.query(
-		`UPDATE ${table} SET topic = ?, description = ?, completed = ?, complete_date = ? WHERE id = ?`,
-		[goal.topic, goal.description, goal.completed, goal.complete_date, id],
+		`UPDATE ${table} SET topic = ?, description = ?, completed = ?, complete_date = ? WHERE id = ? AND user_id = ?`,
+		[goal.topic, goal.description, goal.completed, goal.complete_date, id, userId],
 		(err, res) => {
 			if (err) {
 				console.log('error: ', err)
@@ -81,8 +82,8 @@ Goal.updateById = (id, goal, result, table) => {
 	)
 }
 
-Goal.remove = (id, result, table) => {
-	sql.query(`DELETE FROM ${table} WHERE id = ?`, id, (err, res) => {
+Goal.remove = (id, userId, result, table) => {
+	sql.query(`DELETE FROM ${table} WHERE id = ? AND user_id = ${userId}`, id, (err, res) => {
 		if (err) {
 			console.log('error: ', err)
 			result(err, null)
@@ -100,8 +101,8 @@ Goal.remove = (id, result, table) => {
 	})
 }
 
-Goal.removeAll = (result, table) => {
-	sql.query(`DELETE FROM ${table}`, (err, res) => {
+Goal.removeAll = (userId, result, table) => {
+	sql.query(`DELETE FROM ${table} WHERE user_id = ${userId}`, (err, res) => {
 		if (err) {
 			console.log('error: ', err)
 			result(err, null)

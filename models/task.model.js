@@ -9,14 +9,14 @@ class Task extends Goal {
 
 Task.create = (newGoal, result) => Goal.create(newGoal, result, 'tasks')
 
-Task.findById = (goalId, result) => Goal.findById(goalId, result, 'tasks')
+Task.findById = (goalId, userId, result) => Goal.findById(goalId, userId, result, 'tasks')
 
-Task.getAll = result => Goal.getAll(result, 'tasks')
+Task.getAll = (userId, result) => Goal.getAll(userId, result, 'tasks')
 
-Task.updateById = (goalId, goal, result) => Goal.updateById(goalId, goal, result, 'tasks')
+Task.updateById = (goalId, userId, goal, result) => Goal.updateById(goalId, userId, goal, result, 'tasks')
 
-Task.remove = (id, result) => Goal.remove(id, result, 'tasks')
+Task.remove = (id, userId, result) => Goal.remove(id, userId, result, 'tasks')
 
-Task.removeAll = result => Goal.removeAll(result, 'tasks')
+Task.removeAll = (userId, result) => Goal.removeAll(userId, result, 'tasks')
 
 module.exports = Task
